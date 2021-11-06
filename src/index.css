@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background: #F5F5F5;
+  --white-background: #FAFAFA;
+  --foreground: #102542;
+  --primary: #1B9AAA;
+  --primary-dim: #1b99aa10;
+
+  background-color: var(--background);
+}
+
+p, span, a {
+  font-family: "Chivo";
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6, button, input, textarea {
+  font-family: "Overpass";
+  font-weight: 600;
+  margin: 0.5rem;
+  color: var(--foreground);
+}
