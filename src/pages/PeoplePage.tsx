@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import styled from "styled-components";
 
-import { PeopleItem } from "../styles/PeopleItem";
+import { PeopleItem } from "../types/PeopleItem";
 
 import { Container } from "../components/Container";
 import { ListHeader } from "../components/ListHeader";
@@ -11,25 +11,12 @@ import { Button } from "../components/Button";
 
 const PeoplePage = () => {
 
-  const [people, setPeople] = useState<PeopleItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      const people: PeopleItem[] = [];
-      setPeople(people)
-      setLoading(false)
-    })()
-  }, [])
-
-  console.log(people)
-
   return (
     <>
       <Container>
         <ListHeader title="People" buttonText="Add Person" />
-        {loading && <Loading />}
-        {people.map(({ id, name, pictureUrl }) => (
+        {<Loading />}
+        {[].map(({ id, name, pictureUrl }) => (
           <ListItem key={id}>
             <ProfilePicture src={pictureUrl} alt={`${name} profile picture`} />
             <h3>{name}</h3>
