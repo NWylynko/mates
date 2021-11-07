@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { getPeople } from "../stub/getPeople"
-
 import { PeopleItem } from "../styles/PeopleItem";
 
 import { Container } from "../components/Container";
@@ -18,7 +16,7 @@ const PeoplePage = () => {
 
   useEffect(() => {
     (async () => {
-      const people = await getPeople();
+      const people: PeopleItem[] = [];
       setPeople(people)
       setLoading(false)
     })()
@@ -31,9 +29,11 @@ const PeoplePage = () => {
       <Container>
         <ListHeader title="People" buttonText="Add Person" />
         {loading && <Loading />}
-        {people.map(({ name }) => (
-          <ListItem>
+        {people.map(({ id, name, pictureUrl }) => (
+          <ListItem key={id}>
+            <ProfilePicture src={pictureUrl} alt={`${name} profile picture`} />
             <h3>{name}</h3>
+            <span>Graphic Design, Logo Design, Website Mockup</span>
             <Button>View</Button>
           </ListItem>
         ))}
@@ -44,3 +44,9 @@ const PeoplePage = () => {
 
 export default PeoplePage;
 
+const ProfilePicture = styled.img`
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  background-color: var(--primary);
+`;
