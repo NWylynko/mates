@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 
 const pagesToShowNavBar = ["/people", "/projects"]
