@@ -14,7 +14,7 @@ export const Button = styled.button`
   padding: 0.5rem 1rem;
   margin: 0.125rem 0.25rem;
   cursor: pointer;
-  width: 125px;
+  min-width: 125px;
 
   ${BoxShadowCss};
 

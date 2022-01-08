@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import { Button } from "./Button"
 import { BoxShadowCss } from "./BoxShadowCss"
 
+import { signOutUser } from "../firebase/auth"
+
 export const Header = () => {
   return (
     <Container>
       <h1>Mates</h1>
-      <Button>Logout</Button>
+      <Button onClick={signOutUser}>Logout</Button>
     </Container>
   )
 }
